@@ -1,0 +1,81 @@
+<template name="home">
+    <div class="container">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-2">
+        <div class="row">
+            <h2>Posts :</h2>
+        </div>
+        <div class="qa-message-list" id="wallmessages">
+
+
+            {{#each posts}}
+            <div class="message-item" id="m16">
+                <div class="message-inner">
+                    <div class="message-head clearfix">
+                        <div class="avatar pull-left">
+                            {{#if hasPhoto author}}
+                               <img src="{{getPhoto author}}" style="min-height: 40px; max-height: 40px;"/>
+                            {{/if}}
+                        </div>
+                        <div class="user-detail">
+                            <h5 class="handle">{{title}}</h5>
+                            <div class="post-meta">
+                                <div class="asker-meta">
+                                    <span class="qa-message-what"></span>
+											<span class="qa-message-when">
+												<span class="qa-message-when-data">{{formatTime createdAt}}</span>
+											</span>
+											<span class="qa-message-who">
+												<span class="qa-message-who-pad">by <a href="/profil/{{getIdUser author}}">{{author}}</a></span>
+											</span>
+
+
+                                </div>
+
+                            </div>
+                            <button type="button" class="btn btn-xs pull-right {{#if isMyPost author}} btn-danger {{else}} hide {{/if}} btnDelete" id="{{_id}}"><span class="glyphicon glyphicon-remove" id="{{_id}}"></span> Supprimer</button>
+                            <button type="button" class="btn btn-xs pull-right {{#if isMyPost author}} btn-info {{else}} hide {{/if}} btnEdit" id="{{_id}}"><span class="glyphicon glyphicon-edit" id="{{_id}}"></span> Modifier</button>
+
+                        </div>
+                    </div>
+                    <div class="qa-message-content">
+                        {{content}}
+                    </div>
+                </div></div>
+            {{/each}}
+
+            <!-- Pagination -->
+            <div class="row text-center">
+
+                <div class="col-lg-12">
+                    <ul class="pagination">
+
+                        <li class="previous">
+                            <a href="#"><span class="glyphicon glyphicon-step-backward"></span> Precedent</a>
+                        </li>
+                        <li class="next">
+                            <a href="#">Suivant <span class="glyphicon glyphicon-step-forward"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function(){
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+        });
+    </script>
+</template>

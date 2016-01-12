@@ -1,0 +1,20 @@
+<template name="editPost">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <form>
+
+        <fieldset class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text"  id="titre"  class="form-control" value="{{getTitle _id}}" placeholder="Enter le titre du post">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="content">Centenu</label>
+            <textarea class="form-control" id="content" rows="5">{{getContent _id}} </textarea>
+        </fieldset>
+
+        <div id="success">
+            <a type="submit" class="btn btn-default pull-right btnEdit" id="{{_id}}">Modifier</a>
+        </div>
+    </form>
+        </div>
+</template>

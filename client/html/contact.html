@@ -1,0 +1,53 @@
+<template name="contact">
+
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Contactez-nous :</h1>
+                        <hr class="small">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <form name="sentMessage" id="contactForm">
+
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Addresse Email</label>
+                            <input type="email" class="form-control email" placeholder="Addresse Email" id="email" required data-validation-required-message="Merci d'entrer votre Email.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Sujet</label>
+                            <input type="text" class="form-control sujet" placeholder="Sujet" id="sujet" required data-validation-required-message="Merci d'ajouter le sujet.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Message</label>
+                            <textarea rows="5" class="form-control message" placeholder="Message" id="message" required data-validation-required-message="Merci d'ecrire un message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success">
+                        <a type="submit" class="btn btn-default pull-right btnSend" id="btnSend">Envoyer</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</template>

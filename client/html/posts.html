@@ -1,0 +1,48 @@
+<template name="posts">
+      <div class="container-fluid"  style="width: 70%;">
+          <button type="button" class="btn btn-default pull-right {{#unless currentUser}}hide {{/unless}}"  id="ajouterPost"><span class="glyphicon glyphicon-plus"></span> Ajouter un post</button>
+
+          <h2>Posts</h2>
+
+        <table class="table table-striped" align="center" style="width: auto; width : 800px;">
+            <thead>
+            <tr>
+                <th style="width: 300px; overflow: hidden; display: inline-block; white-space: nowrap;">Auteur</th>
+                <th style="width: 400px; overflow: hidden; display: inline-block; white-space: nowrap;">Titre</th>
+                <th class="{{#if isUser}} text-center {{else}} hide {{/if}}" style="width: 100px; overflow: hidden; display: inline-block; white-space: nowrap;">Edit/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {{#each posts}}
+            <tr>
+                <td style="width: 300px; overflow: hidden; display: inline-block; white-space: nowrap;">{{author}}</td>
+                <td style="width: 400px; overflow: hidden; display: inline-block; white-space: nowrap;">{{title}}</td>
+                <td class="{{#if isUser}} text-center {{else}} hide {{/if}}" style="width: 100px; overflow: hidden; display: inline-block; white-space: nowrap;">
+                    <button type="button" class="btn btn-xs {{#if isMyPost author}} btn-danger {{else}} hide {{/if}} btnDelete" id="{{_id}}"><span class="glyphicon glyphicon-remove" id="{{_id}}"></span></button> &nbsp;
+                    <button type="button" class="btn btn-xs  {{#if isMyPost author}} btn-info {{else}} hide {{/if}} btnEdit"  id="{{_id}}"><span class="glyphicon glyphicon-pencil" id="{{_id}}"></span></button>
+                </td>
+            </tr>
+            {{/each}}
+
+            </tbody>
+        </table>
+
+          <div class="row text-center">
+
+              <div class="col-lg-12">
+                  <ul class="pagination">
+
+                      <li class="previous">
+                          <a href="#"><span class="glyphicon glyphicon-step-backward"></span> Precedent</a>
+                      </li>
+                      <li class="next">
+                          <a href="#">Suivant <span class="glyphicon glyphicon-step-forward"></span></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- /.row -->
+    </div>
+</template>
