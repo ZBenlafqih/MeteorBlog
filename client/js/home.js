@@ -28,7 +28,7 @@ Template.home.helpers({
     },getIdUser: function(owner){
         var user = Meteor.users.findOne({username : owner});
         return user._id;
-    },
+    }
 
 });
 
@@ -59,6 +59,7 @@ Template.home.events({
             Session.set('skip',Session.get('skip')-6);
     },
     'click .next':function(){
+        if(Posts.find({}).count() > 5)
             Session.set('skip',Session.get('skip')+6);
     }
 });

@@ -56,6 +56,8 @@ Template.posts.events({
             Session.set('skip',Session.get('skip')-6);
     },
     'click .next':function(){
-        Session.set('skip',Session.get('skip')+6);
+        if(Posts.find({}).count() > 5)
+           Session.set('skip',Session.get('skip')+6);
     }
+
 });
